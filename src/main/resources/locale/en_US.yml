@@ -1,0 +1,4 @@
+battlecore:
+  clearlag:
+    completed: "&c&lClearlag &7» Cleaned {0} entities and unlocked {1} chunks."
+    warning: "&c&lClearlag &7» Cleaning server in {0}."

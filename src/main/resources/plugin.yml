@@ -1,0 +1,60 @@
+ ######   #######  ########  ########
+##    ## ##     ## ##     ## ##
+##       ##     ## ##     ## ##
+##       ##     ## ########  ######
+##       ##     ## ##   ##   ##
+##    ## ##     ## ##    ##  ##
+ ######   #######  ##     ## ########
+
+name: ${project.artifactId}
+main: ${project.groupId}.${project.artifactId}
+version: ${project.version}
+author: ${project.author}
+website: ${project.website}
+database: false
+description: ${project.description}
+depend: [Lib, Vault]
+
+commands:
+  spawner:
+    description: Change a spawner type
+    usage: /<command> <type>
+    permission: battlecore.spawner
+  tips:
+    description: Toggle automessages
+  welcome:
+    description: Welcomes the new players
+    aliases: [welc]
+  qotd:
+    description: Toggle quote of the day
+  playtime:
+    description: View your playtime
+  reclaim:
+    description: Reclaim your rewards
+  buycast:
+    description: Purchase broadcast
+    permission: battlecore.buycast
+  worldport:
+    description: World teleporting
+    permission: battlecore.worldport
+  online:
+    description: Views online players
+    permission: battlecore.online
+    aliases: [o]
+  clearlag:
+    description: Executes a clearlag
+    permission: battlecore.clearlag
+  nextclear:
+    description: Checks when the next clearlag will be
+    aliases: [nclear, nextclag, nextclearlag]
+  doubleornothing:
+    usage: /<command> <bet amount>
+    description: Spends <amount> with a 50% chance to double your bet
+    aliases: [don, doubleornone, doubleon, dornone, dorn, roll]
+
+# WRITTEN BY ADAM "PACKET" EDWARDS
+# MODIFIED BY LEWES ("BOOMCLAW").
+# PERMISSION TO USE, DISTRIBUTE, OR
+# MODIFY MUST BE GRANTED DIRECTLY
+# FROM ADAM. CONTACT: Skype: packetdev
+# OR EMAIL: packetdev@gmail.com
