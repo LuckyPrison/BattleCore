@@ -44,6 +44,7 @@ public class LocaleImport extends Locale {
 		callReload();
 	}
 
+	@SuppressWarnings("deprecation")
 	public String getValue(String language, String key) {
 		FileConfiguration config = YamlConfiguration
 				.loadConfiguration(BattleCore.get().getResource("locale/" + language + ".yml"));
@@ -51,8 +52,9 @@ public class LocaleImport extends Locale {
 		return config.getString(key, "");
 	}
 
+	@SuppressWarnings("deprecation")
 	private List<String> getMissingKeys(String language) {
-		List<String> missingKeys = new ArrayList<String>();
+		List<String> missingKeys = new ArrayList<>();
 
 		FileConfiguration localeConfig = getLocaleConfig(language);
 
