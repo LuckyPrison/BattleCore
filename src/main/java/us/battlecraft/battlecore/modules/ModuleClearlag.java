@@ -65,6 +65,7 @@ public class ModuleClearlag extends SimpleModule implements Runnable {
 	@Override
 	public void postEnable() {
 		this.timestamp = Timestamp.future(Milliseconds.fromMinutes(5));
+		this.sec = (int) Seconds.fromMinutes(5);
 
 		this.task = Tasks.runRepeating(this, Ticks.fromSeconds(1)).getTaskId();
 	}

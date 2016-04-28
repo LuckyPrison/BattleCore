@@ -67,6 +67,13 @@
 					<include>*.yml</include>
 				</includes>
 			</resource>
+			<resource>
+				<targetPath>locale</targetPath>
+				<directory>${basedir}/src/main/resources/locale/</directory>
+				<includes>
+					<include>*.yml</include>
+				</includes>
+			</resource>
 		</resources>
 	</build>
 

@@ -25,17 +25,17 @@ public class ModuleDoubleOrNothing extends SimpleModule {
 			public void run() {
 				final double price = (double) this.getObject("price");
 				final UUID uuid = this.getPlayer().getUniqueId();
-				
+
 				if (!Hooks.ECON.takeMoney(uuid, price, "")) {
 					Locale.sendError(this.getPlayer(), "battlecore.don_cannot_afford", new Object[0]);
 					return;
 				}
-				
+
 				if (!RandomUtils.nextBoolean()) {
 					Locale.send(this.getPlayer(), "battlecore.don_lost", new Object[0]);
 					return;
 				}
-				
+
 				final double dp = price * 2.0;
 				Hooks.ECON.giveMoney(uuid, dp, "");
 				Locale.send(this.getPlayer(), "battlecore.don_won", new Object[] { price, dp });

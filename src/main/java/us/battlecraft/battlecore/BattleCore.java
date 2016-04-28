@@ -34,6 +34,7 @@ public class BattleCore extends Plugin {
 		return BattleCore.INSTANCE;
 	}
 
+	@Override
 	public void load() {
 		BattleCore.INSTANCE = this;
 
@@ -60,6 +61,7 @@ public class BattleCore extends Plugin {
 		this.withSubModule(new ModuleQuickfixes());
 	}
 
+	@Override
 	public void enable() {
 		this.registerHook(Hooks.ECON, new Eco());
 

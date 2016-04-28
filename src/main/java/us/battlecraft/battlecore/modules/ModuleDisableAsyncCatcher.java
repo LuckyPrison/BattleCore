@@ -22,5 +22,5 @@ public class ModuleDisableAsyncCatcher extends SimpleModule {
 	public void postDisable() {
 		AsyncCatcher.enabled = this.set;
 	}
-	
+
 }

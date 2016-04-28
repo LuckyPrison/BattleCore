@@ -11,7 +11,6 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import com.ulfric.lib.Lib;
 import com.ulfric.lib.api.locale.Locale;
-import com.ulfric.lib.api.locale.LocaleModule;
 import com.ulfric.lib.api.module.IModule;
 
 import us.battlecraft.battlecore.BattleCore;
@@ -62,11 +61,13 @@ public class LocaleImport extends Locale {
 			return missingKeys;
 
 		FileConfiguration config = YamlConfiguration
-				.loadConfiguration(BattleCore.get().getResource("locale/" + language + ".yml"));
+				.loadConfiguration(BattleCore.get().getResource(("locale/" + language + ".yml").replace('\\', '/')));
+
+		Bukkit.broadcastMessage(getLocaleConfig(language).getCurrentPath().toString());
 
 		for (String key : config.getKeys(true)) {
 			if (!localeConfig.isSet(key)) {
-				missingKeys.add(language);
+				missingKeys.add(key);
 			}
 		}
 
@@ -79,7 +80,7 @@ public class LocaleImport extends Locale {
 		File[] files = dataFolder.listFiles();
 
 		for (File file : files) {
-			if ((file.getName() + ".yml").equals(language)) {
+			if ((file.getName()).equals(language + ".yml")) {
 				return file;
 			}
 		}
@@ -98,7 +99,7 @@ public class LocaleImport extends Locale {
 		Bukkit.getLogger().info("Calling reload for LocaleModule from BattleCore.");
 
 		for (IModule module : Lib.get().getSubModules()) {
-			if (module instanceof LocaleModule) {
+			if (module.getName().equalsIgnoreCase("locale")) {
 				module.disable();
 				module.enable();
 			}
