@@ -30,6 +30,7 @@ public class LocaleImport extends Locale {
 			String value = getValue(language, key);
 
 			if (!value.equals("")) {
+				Bukkit.getLogger().info("Added missing key " + key + " to " + language + " locale.");
 				localeConfig.set(key, getValue(language, key));
 			}
 		}
@@ -52,6 +53,20 @@ public class LocaleImport extends Locale {
 
 	private List<String> getMissingKeys(String language) {
 		List<String> missingKeys = new ArrayList<String>();
+
+		FileConfiguration localeConfig = getLocaleConfig(language);
+
+		if (localeConfig == null)
+			return missingKeys;
+		
+		FileConfiguration config = YamlConfiguration
+				.loadConfiguration(BattleCore.get().getResource("locale/" + language + ".yml"));
+		
+		for(String key : config.getKeys(true)) {
+			if(!localeConfig.isSet(key)) {
+				missingKeys.add(language);
+			}
+		}
 
 		return missingKeys;
 	}
