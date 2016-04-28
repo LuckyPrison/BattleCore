@@ -2,3 +2,5 @@ battlecore:
   clearlag:
     completed: "&c&lClearlag &7» Cleaned {0} entities and unlocked {1} chunks."
     warning: "&c&lClearlag &7» Cleaning server in {0}."
+    next: "&c&lClearlag &7» The next server clean will be in {0}."
+  antiglitch: "This area is off-limits."

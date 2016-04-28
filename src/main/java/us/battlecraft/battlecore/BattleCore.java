@@ -3,6 +3,8 @@ package us.battlecraft.battlecore;
 import com.ulfric.lib.api.module.Plugin;
 
 import us.battlecraft.battlecore.locale.LocaleImport;
+import us.battlecraft.battlecore.modules.ModuleAntiglitch;
+import us.battlecraft.battlecore.modules.ModuleClearlag;
 
 public class BattleCore extends Plugin {
 
@@ -14,6 +16,9 @@ public class BattleCore extends Plugin {
 
 	public void load() {
 		BattleCore.INSTANCE = this;
+		
+		this.withSubModule(new ModuleAntiglitch());
+		this.withSubModule(new ModuleClearlag());
 	}
 
 	public void enable() {
