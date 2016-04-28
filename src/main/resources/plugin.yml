@@ -13,7 +13,7 @@ author: ${project.author}
 website: ${project.website}
 database: false
 description: ${project.description}
-depend: [Lib, Vault]
+depend: [Lib, Vault, Vault]
 
 commands:
   spawner:

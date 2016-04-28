@@ -60,12 +60,12 @@ public class LocaleImport extends Locale {
 
 		if (localeConfig == null)
 			return missingKeys;
-		
+
 		FileConfiguration config = YamlConfiguration
 				.loadConfiguration(BattleCore.get().getResource("locale/" + language + ".yml"));
-		
-		for(String key : config.getKeys(true)) {
-			if(!localeConfig.isSet(key)) {
+
+		for (String key : config.getKeys(true)) {
+			if (!localeConfig.isSet(key)) {
 				missingKeys.add(language);
 			}
 		}

@@ -1,12 +1,13 @@
 package us.battlecraft.battlecore.modules;
 
-import com.ulfric.lib.api.locale.Locale;
-import com.ulfric.lib.api.module.SimpleModule;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
+
+import com.ulfric.lib.api.locale.Locale;
+import com.ulfric.lib.api.module.SimpleModule;
 
 public class ModuleAntiglitch extends SimpleModule {
 
@@ -23,13 +24,13 @@ public class ModuleAntiglitch extends SimpleModule {
 				if (!location.getWorld().getEnvironment().equals((Object) World.Environment.NETHER)) {
 					return;
 				}
-				
+
 				if (location.getY() < 122.0) {
 					return;
 				}
-				
+
 				event.setCancelled(true);
-				
+
 				Locale.sendError(event.getPlayer(), "battlecore.antiglitch");
 			}
 		});

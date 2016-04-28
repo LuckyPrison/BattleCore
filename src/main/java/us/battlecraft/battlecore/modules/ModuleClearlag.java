@@ -42,9 +42,9 @@ public class ModuleClearlag extends SimpleModule implements Runnable {
 
 	public ModuleClearlag() {
 		super("clearlag", "Prevents lag on the server", "Boomclaw", "1.0.0");
-		
+
 		this.addCommand("clearlag", new CommandClearlag());
-		this.addCommand("nextclear", new CommandClearlag());
+		this.addCommand("nextclear", new CommandNextclear());
 	}
 
 	private class CommandClearlag extends SimpleCommand {
@@ -67,6 +67,11 @@ public class ModuleClearlag extends SimpleModule implements Runnable {
 		this.timestamp = Timestamp.future(Milliseconds.fromMinutes(5));
 
 		this.task = Tasks.runRepeating(this, Ticks.fromSeconds(1)).getTaskId();
+	}
+
+	@Override
+	public void postDisable() {
+		Tasks.cancel(this.task);
 	}
 
 	@Override

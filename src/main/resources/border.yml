@@ -1,0 +1,6 @@
+world:
+  size: 16000
+  warning: 16
+world_nether:
+  size: 6016
+  warning: 16
